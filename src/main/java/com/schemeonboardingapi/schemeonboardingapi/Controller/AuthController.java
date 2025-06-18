@@ -39,14 +39,17 @@ public class AuthController {
 
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@Valid @RequestBody AuthRequest request) throws NoSuchAlgorithmException {
-		Optional<User> userOptional = userRepository.findByEmpEmail(request.getEmpemail());
 		
+		System.out.println("Email:"+request.getEmpemail());		
+		Optional<User> userOptional = userRepository.findByEmpEmail(request.getEmpemail());
+		System.out.println("userOptional:"+userOptional.toString());
 		if (userOptional.isPresent()) {
 			User user = userOptional.get();
+			System.out.println("Email:"+user.toString());		
 			 SecureRandom srnd = new SecureRandom();
 			    int saltLen = srnd.nextInt(10000);
 			    String strsalt = String.valueOf(saltLen);
-
+			    System.out.println("Salt:"+strsalt.toString());
 			    // Convert salt to hex
 			    String hashsalt_hidden = generateSHA256Hash(strsalt);
 			    // Convert salt to hex
