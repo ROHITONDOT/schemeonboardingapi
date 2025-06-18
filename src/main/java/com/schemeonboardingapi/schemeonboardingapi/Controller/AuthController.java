@@ -56,13 +56,15 @@ public class AuthController {
 			     hashsalt_hidden = generateSHA256Hash(hashsalt_hidden.trim().concat("NICCIN"));
 			     
 			    String storedpwd = user.getUserPassword().concat(hashsalt_hidden);
+			    System.out.println("storedpwd"+user.getUserPassword());
+			    System.out.println("storedpwdwith hash:"+storedpwd);
 	            String hashpwd = generateSHA256Hash(storedpwd);
-	           
+	            System.out.println("hashpwd hash:"+hashpwd);
 	            String InputPassword = request.getUser_password() ;
 	            
 
 	            String hashedInputPasswordValue = hashPassword(InputPassword,hashsalt_hidden);
-
+	            System.out.println("hashedInputPasswordValue hash:"+hashedInputPasswordValue);
 			    // Hash the input password with the session salt
 		     //   String hashedInputPassword = generateSHA256Hash(request.getUser_password() + hashsalt_hidden);
 
