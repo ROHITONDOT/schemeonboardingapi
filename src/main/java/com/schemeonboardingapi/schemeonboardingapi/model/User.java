@@ -9,7 +9,8 @@ import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.*;
 
 @Entity
-@Table(name = "mas_admin_users", schema = "bms_user") // Correct schema and table name
+//@Table(name = "mas_admin_users", schema = "bms_user") // Correct schema and table name
+@Table(name = "mas_admin_users") // Correct schema and table name
 public class User {
 
     @Id
